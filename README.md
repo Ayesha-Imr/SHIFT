@@ -3,6 +3,16 @@
 
 SHIFT is a browser extension that analyzes the sustainability and eco-friendliness of a product, and provides eco-friendly alternatives. Helping you shift towards sustainability, one purchase swap at a time.
 
+## Langflow Flows
+
+### Product Eco-Friendliness Analysis Flow
+![image](https://github.com/user-attachments/assets/e373cc40-b59f-40e6-a3f6-8f58a03d05f8)
+
+
+### Sustainable Alternatives Flow
+![image](https://github.com/user-attachments/assets/85918829-06a5-4f5b-90d1-038e3a28ed7d)
+
+
 ## Project Setup
 
 ### Prerequisites
