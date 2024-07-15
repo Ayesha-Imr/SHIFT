@@ -23,8 +23,8 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/repo-name.git
-   cd repo-name
+   git clone https://github.com/Ayesha-Imr/SHIFT.git
+   cd shift
     ```
    
 2. Create a virtual environment
