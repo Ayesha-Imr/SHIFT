@@ -24,7 +24,6 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
 1. **Clone the repository**
    ```sh
    git clone https://github.com/Ayesha-Imr/SHIFT.git
-   cd shift
     ```
    
 2. Create a virtual environment
@@ -38,20 +37,23 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
 
     ```sh
     pip install -r requirements.txt
-    Setup environment variables
+    
     ```
 
-4. Rename env.txt to .env
-  Open .env and add your API keys for Groq and Search API:
+4. Setup environment variables
+
+   Rename env.txt to .env
+   
+   Open .env and add your API keys for Groq and Search API:
    ```sh
    GROQ_API_KEY=your_groq_api_key
    SEARCH_API_KEY=your_search_api_key
     ```
-5. Run the Python server
+6. Run the Python server
    ```sh
    python app.py
     ```
-6. Load the Chrome Extension
+7. Load the Chrome Extension
 
    Open Chrome and go to chrome://extensions/.
    
@@ -59,7 +61,7 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
   
    Click the "Load unpacked" button and select the extension directory of the project.
 
-7. Using the Extension
+8. Using the Extension
 
    Click on the extension icon in the Chrome toolbar.
 
@@ -68,7 +70,7 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
    Use the "Get Alternatives" button to get eco-friendly alternatives.
 
    
-8. Project Structure
+9. Project Structure
    ```sh
     langflowapp/
     │
