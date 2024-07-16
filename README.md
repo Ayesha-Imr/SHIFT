@@ -8,9 +8,20 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
 ### Product Eco-Friendliness Analysis Flow
 ![image](https://github.com/user-attachments/assets/e373cc40-b59f-40e6-a3f6-8f58a03d05f8)
 
+Explanation: A URL is passed in as input to the URL component which extracts all the text from the webpage. Then the extracted text is truncated to keep only the first 6000 characters to stay within the token limit of the Groq API and also to remove unnecessary information towards the bottom of the page. Next, the extracted and  truncated text is passed on to the Groq API with Llama3-70b model as the LLM along with a custom prompt that directs the LLM to give a proper formatted response (Python dict format) for ease in extraction later. The LLM response is then parsed to extract the different components (rating, TLDR, details and product_description) in separate variables for frontend display. The product_description is not displayed at the frontend but used as the input to the second flow which is discussed below.
 
 ### Sustainable Alternatives Flow
 ![image](https://github.com/user-attachments/assets/85918829-06a5-4f5b-90d1-038e3a28ed7d)
+This flow consists of a Tool-calling Agent which again uses Llama3-70b LLM through Groq API. It has access to a Search Tool which utilises Search API, using Google as the search engine. The product_description extracted from the previous flow (discussed above) is passed as an input to this agent with instructions to search for similar but more sustainable alternatives for the product on the internet by utilising the Search Tool. After enough tool invocations, the agent generates a response based on the search results which is then passed to the frontend for display.
+
+## Frontend (Chrome Extension)
+The frontend of the SHIFT browser extension is built using HTML, CSS, and JavaScript. HTML structures the content and layout, CSS provides styling for a clean, user-friendly interface, and JavaScript implements interactive features and functionality, including fetching data from the backend and dynamically updating the UI. Additionally, Chrome Extension APIs are used to facilitate integration with the browser, allowing SHIFT to interact with web pages and perform analyses seamlessly.
+
+![image](https://github.com/user-attachments/assets/18aa0462-d104-4e9a-b9cd-9c9ed2ea5011)      ![image](https://github.com/user-attachments/assets/d08da3db-021f-42a6-9374-80295fbd6474) ![image](https://github.com/user-attachments/assets/edeec5bf-6c32-4be1-9264-1a673ce48ff4)       ![image](https://github.com/user-attachments/assets/808a78b5-0d05-4dbc-8a6e-34098b6f2d95)   ![image](https://github.com/user-attachments/assets/c49b097b-4079-4f5c-9283-9f78d307cf2b)
+
+
+
+
 
 
 ## Project Setup
@@ -44,7 +55,7 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
 
    Rename env.txt to .env
    
-   Open .env and add your API keys for Groq and Search API:
+   Open .env and add your API keys for Groq (https://console.groq.com/keys) and Search API (https://searchapi.io/):
    ```sh
    GROQ_API_KEY=your_groq_api_key
    SEARCH_API_KEY=your_search_api_key
@@ -98,3 +109,5 @@ SHIFT is a browser extension that analyzes the sustainability and eco-friendline
     ├── .gitignore
     └── README.md
     ```
+
+   Note: Due to some unstability issues with Langflow, you might run into some issues with building custom components and fetching repsonses on the first few tries. But keep restarting the Python server and rerun it, it will eventually work.
